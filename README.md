@@ -1,6 +1,6 @@
 <h1 align="center">Recriando o Jogo do Dinossauro</h1>
 
-<p align="center">Link para testar o jogo: https://jaine-kiefer.github.io/JogoDaVelha/</p>
+<p align="center">Link para testar o jogo: https://jaine-kiefer.github.io/JogoDinossauro/</p>
 
 <p align="center">
  <a href="#descrição">Descrição</a> •
