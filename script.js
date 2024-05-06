@@ -13,6 +13,11 @@ function handleKeyUp(event) {
   }
 }
 
+function restartGame() {
+  isGameOver = false;
+  document.getElementById('overlay').classList.remove('visible');
+}
+
 function jump() {
   isJumping = true;
 
@@ -43,6 +48,8 @@ function createCactus() {
   let cactusPosition = 1000;
   let randomTime = Math.random() * 6000;
 
+  setTimeout(createCactus, randomTime);
+
   if (isGameOver) return;
 
   cactus.classList.add('cactus');
@@ -58,15 +65,15 @@ function createCactus() {
       // Game over
       clearInterval(leftTimer);
       isGameOver = true;
-      document.body.innerHTML = '<h1 class="game-over">Fim de jogo</h1>';
+      background.removeChild(cactus);
+      document.getElementById('overlay').classList.add('visible');
     } else {
       cactusPosition -= 10;
       cactus.style.left = cactusPosition + 'px';
     }
   }, 20);
-
-  setTimeout(createCactus, randomTime);
 }
 
 createCactus();
 document.addEventListener('keyup', handleKeyUp);
+document.getElementById('restart').addEventListener('click', restartGame);
