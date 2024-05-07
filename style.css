@@ -21,6 +21,9 @@ body {
   }
 
   .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     visibility: hidden;
     position: absolute;
     top: 0;
@@ -36,6 +39,17 @@ body {
     color: white;
     border: none;
     background-color: blue;
+    width: fit-content;
+    margin: 0 auto 7vh;
+    transition: opacity .2s;
+  }
+
+  .overlay button:hover {
+    opacity: .8;
+  }
+
+  .overlay button:active {
+    opacity: .55;
   }
   
   .overlay.visible {
@@ -63,8 +77,8 @@ body {
     bottom: 0px;
     background-image: url('background.png');
     background-repeat: repeat-x;
-    animation: slideright 600s infinite linear;
-    -webkit-animation: slideright 600s infinite linear;
+    animation: slideright 900s infinite linear;
+    -webkit-animation: slideright 900s infinite linear;
     width: 100%;
     height: 200px;
     overflow: hidden;
