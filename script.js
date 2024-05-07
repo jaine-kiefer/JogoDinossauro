@@ -4,10 +4,11 @@ const background = document.querySelector('.background');
 let isJumping = false;
 let isGameOver = false;
 let position = 0;
+const intervalTime = 1000/60; // ajuste paliativo
 
 function handleKeyUp(event) {
   if (event.keyCode === 32) {
-    if (!isJumping) {
+    if (!isJumping && !isGameOver) {
       jump();
     }
   }
@@ -20,6 +21,7 @@ function restartGame() {
 
 function jump() {
   isJumping = true;
+  const speed = 20;
 
   let upInterval = setInterval(() => {
     if (position >= 150) {
@@ -31,16 +33,16 @@ function jump() {
           clearInterval(downInterval);
           isJumping = false;
         } else {
-          position -= 20;
+          position -= speed;
           dino.style.bottom = position + 'px';
         }
-      }, 20);
+      }, intervalTime);
     } else {
       // Subindo
-      position += 20;
+      position += speed;
       dino.style.bottom = position + 'px';
     }
-  }, 20);
+  }, intervalTime);
 }
 
 function createCactus() {
@@ -71,9 +73,9 @@ function createCactus() {
       cactusPosition -= 10;
       cactus.style.left = cactusPosition + 'px';
     }
-  }, 20);
+  }, intervalTime);
 }
 
 createCactus();
-document.addEventListener('keyup', handleKeyUp);
+document.addEventListener('keydown', handleKeyUp);
 document.getElementById('restart').addEventListener('click', restartGame);
