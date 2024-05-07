@@ -5,4 +5,4 @@
 * Aumentar tamanho da cena e fazer ajustar ao mobile
 * Adicionar padding lateral
 * Adicionar um contador
-
+* Ajustar velocidade da animação do fundo

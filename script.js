@@ -21,7 +21,7 @@ function restartGame() {
 
 function jump() {
   isJumping = true;
-  const speed = 20;
+  const dinosaureSpeed = 17;
 
   let upInterval = setInterval(() => {
     if (position >= 150) {
@@ -33,14 +33,14 @@ function jump() {
           clearInterval(downInterval);
           isJumping = false;
         } else {
-          position -= speed;
-          dino.style.bottom = position + 'px';
+          position -= dinosaureSpeed;
+          dino.style.transform = `translateY(-${position}px)`;
         }
       }, intervalTime);
     } else {
       // Subindo
-      position += speed;
-      dino.style.bottom = position + 'px';
+      position += dinosaureSpeed;
+      dino.style.transform = `translateY(-${position}px)`;
     }
   }, intervalTime);
 }
@@ -49,6 +49,7 @@ function createCactus() {
   const cactus = document.createElement('div');
   let cactusPosition = 1000;
   let randomTime = Math.random() * 6000;
+  const cactusSpeed = 8;
 
   setTimeout(createCactus, randomTime);
 
@@ -56,7 +57,7 @@ function createCactus() {
 
   cactus.classList.add('cactus');
   background.appendChild(cactus);
-  cactus.style.left = cactusPosition + 'px';
+  cactus.style.transform = `translateX(${cactusPosition}px`;
 
   let leftTimer = setInterval(() => {
     if (cactusPosition < -60) {
@@ -70,8 +71,8 @@ function createCactus() {
       background.removeChild(cactus);
       document.getElementById('overlay').classList.add('visible');
     } else {
-      cactusPosition -= 10;
-      cactus.style.left = cactusPosition + 'px';
+      cactusPosition -= cactusSpeed;
+      cactus.style.transform = `translateX(${cactusPosition}px`;
     }
   }, intervalTime);
 }
