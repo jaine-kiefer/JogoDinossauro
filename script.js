@@ -5,6 +5,9 @@ let isJumping = false;
 let isGameOver = false;
 let position = 0;
 const intervalTime = 1000/60; // ajuste paliativo
+const dinosaureSpeed = 17;
+const cactusSpeedPerSecond = 160; // pixels por segundo
+const cactusSpeed = cactusSpeedPerSecond / intervalTime; 
 
 function handleKeyUp(event) {
   if (event.keyCode === 32) {
@@ -21,7 +24,6 @@ function restartGame() {
 
 function jump() {
   isJumping = true;
-  const dinosaureSpeed = 17;
 
   let upInterval = setInterval(() => {
     if (position >= 150) {
@@ -49,7 +51,6 @@ function createCactus() {
   const cactus = document.createElement('div');
   let cactusPosition = 1000;
   let randomTime = Math.random() * 6000;
-  const cactusSpeed = 8;
 
   setTimeout(createCactus, randomTime);
 
