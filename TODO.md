@@ -6,3 +6,5 @@
 * Adicionar padding lateral
 * Adicionar um contador
 * Ajustar velocidade da animação do fundo
+* Ajustar a criação de cactos para não gerar dois cactos lado a lado
+* Ajustar para os cactos serem inseridos fora da tela à direita
