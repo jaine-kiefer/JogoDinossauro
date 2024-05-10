@@ -17,6 +17,12 @@ function handleKeyUp(event) {
   }
 }
 
+function handleClickOnBackground(event) {
+  if (!isJumping && !isGameOver) {
+    jump();
+  }
+}
+
 function restartGame() {
   isGameOver = false;
   document.getElementById('overlay').classList.remove('visible');
@@ -80,4 +86,5 @@ function createCactus() {
 
 createCactus();
 document.addEventListener('keydown', handleKeyUp);
+document.body.addEventListener('click', handleClickOnBackground);
 document.getElementById('restart').addEventListener('click', restartGame);

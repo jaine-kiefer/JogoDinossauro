@@ -4,6 +4,11 @@ body, html {
   margin: 0;
   overflow: hidden;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
   
   .dino {
     position: absolute;
