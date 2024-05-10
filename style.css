@@ -10,84 +10,84 @@ body {
   height: 100vh;
 }
   
-  .dino {
-    position: absolute;
-    bottom: 0;
-    background-image: url(dino.png);
-    width: 60px;
-    height: 60px;
-  }
-  
-  .cactus {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    bottom: 0;
-    background-image: url(cactus.png);
-  }
+.dino {
+  position: absolute;
+  bottom: 0;
+  background-image: url(dino.png);
+  width: 60px;
+  height: 60px;
+}
 
-  .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,.3);
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    text-align: center;
-  }
-  .overlay button {
-    padding: .3em 1em;
-    color: white;
-    border: none;
-    background-color: blue;
-    width: fit-content;
-    margin: 0 auto 7vh;
-    transition: opacity .2s;
-  }
+.cactus {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 0;
+  background-image: url(cactus.png);
+}
 
-  .overlay button:hover {
-    opacity: .8;
-  }
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  text-align: center;
+}
+.overlay button {
+  padding: .3em 1em;
+  color: white;
+  border: none;
+  background-color: blue;
+  width: fit-content;
+  margin: 0 auto 7vh;
+  transition: opacity .2s;
+}
 
-  .overlay button:active {
-    opacity: .55;
-  }
-  
-  .overlay.visible {
-    visibility: unset;
-  }
+.overlay button:hover {
+  opacity: .8;
+}
 
-  .game-over {
-    text-align: center;
-    color: white;
-    margin: 50px 0;
-    font-family: arial;
+.overlay button:active {
+  opacity: .55;
+}
+
+.overlay.visible {
+  visibility: unset;
+}
+
+.game-over {
+  text-align: center;
+  color: white;
+  margin: 50px 0;
+  font-family: arial;
+}
+
+@keyframes slideright {
+  from {
+      background-position: 70000%;
   }
-  
-  @keyframes slideright {
-    from {
-        background-position: 70000%;
-    }
-    to {
-        background-position: 0%;
-    }
+  to {
+      background-position: 0%;
   }
-  
-  .background {
-    position: absolute;
-    bottom: 0px;
-    background-image: url('background.png');
-    background-repeat: repeat-x;
-    animation: slideright 900s infinite linear;
-    -webkit-animation: slideright 900s infinite linear;
-    width: 100%;
-    height: 200px;
-    /* aumentando tamanho da cena temporariamente */
-    transform: scale(1.2);
-    transform-origin: left bottom;
-  }
+}
+
+.background {
+  position: absolute;
+  bottom: 0px;
+  background-image: url('background.png');
+  background-repeat: repeat-x;
+  animation: slideright 900s infinite linear;
+  -webkit-animation: slideright 900s infinite linear;
+  width: 100%;
+  height: 200px;
+  /* aumentando tamanho da cena temporariamente */
+  transform: scale(1.2);
+  transform-origin: left bottom;
+}

@@ -1,9 +1,11 @@
-const dino = document.querySelector('.dino');
-const background = document.querySelector('.background');
+const dinoElement = document.querySelector('.dino');
+const backgroundElement = document.querySelector('.background');
 
+// estados
 let isJumping = false;
 let isGameOver = false;
-let position = 0;
+let positionY = 0;
+
 const intervalTime = 1000/60; // ajuste paliativo
 const dinosaureSpeed = 17;
 const cactusSpeedPerSecond = 160; // pixels por segundo
@@ -32,23 +34,23 @@ function jump() {
   isJumping = true;
 
   let upInterval = setInterval(() => {
-    if (position >= 150) {
+    if (positionY >= 150) {
       // Descendo
       clearInterval(upInterval);
 
       let downInterval = setInterval(() => {
-        if (position <= 0) {
+        if (positionY <= 0) {
           clearInterval(downInterval);
           isJumping = false;
         } else {
-          position -= dinosaureSpeed;
-          dino.style.transform = `translateY(-${position}px)`;
+          positionY -= dinosaureSpeed;
+          dinoElement.style.transform = `translateY(-${positionY}px)`;
         }
       }, intervalTime);
     } else {
       // Subindo
-      position += dinosaureSpeed;
-      dino.style.transform = `translateY(-${position}px)`;
+      positionY += dinosaureSpeed;
+      dinoElement.style.transform = `translateY(-${positionY}px)`;
     }
   }, intervalTime);
 }
@@ -63,19 +65,19 @@ function createCactus() {
   if (isGameOver) return;
 
   cactus.classList.add('cactus');
-  background.appendChild(cactus);
+  backgroundElement.appendChild(cactus);
   cactus.style.transform = `translateX(${cactusPosition}px`;
 
   let leftTimer = setInterval(() => {
     if (cactusPosition < -60) {
       // Saiu da tela
       clearInterval(leftTimer);
-      background.removeChild(cactus);
-    } else if (cactusPosition > 0 && cactusPosition < 60 && position < 60) {
+      backgroundElement.removeChild(cactus);
+    } else if (cactusPosition > 0 && cactusPosition < 60 && positionY < 60) {
       // Game over
       clearInterval(leftTimer);
       isGameOver = true;
-      background.removeChild(cactus);
+      backgroundElement.removeChild(cactus);
       document.getElementById('overlay').classList.add('visible');
     } else {
       cactusPosition -= cactusSpeed;
